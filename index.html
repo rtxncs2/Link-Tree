@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jac Sparrow | Links</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Noto+Sans+Malayalam:wght@500&display=swap');
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      font-family: 'Poppins', 'Noto Sans Malayalam', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      padding: 2rem 0;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 1200px;
+      width: 90%;
+    }
+
+    .avatar {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 4px solid rgba(138, 43, 226, 0.6);
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 30px rgba(138, 43, 226, 0.5);
+      object-fit: cover;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin: 0 0 0.5rem;
+      background: linear-gradient(to right, #8a2be2, #ff00ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p {
+      opacity: 0.9;
+      margin-bottom: 3rem;
+      font-size: 1.1rem;
+    }
+
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    @media (max-width: 1024px) {
+      .links-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 640px) {
+      .links-grid { grid-template-columns: 1fr; }
+    }
+
+    .link-btn {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      padding: 1.3rem 0.8rem;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 1.05rem;
+      font-weight: 500;
+      transition: all 0.4s ease;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .link-btn:hover {
+      transform: translateY(-10px) scale(1.05);
+      background: rgba(138, 43, 226, 0.4);
+      box-shadow: 0 20px 40px rgba(138, 43, 226, 0.4);
+      border-color: #8a2be2;
+    }
+
+    /* Footer - perfectly centered */
+    .footer {
+      font-size: 0.95rem;
+      opacity: 0.7;
+      margin-top: 2rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEirvszDttU2BaARwvLRaY-TBr7awLPypgvIVkJ5Dy2PrTowVaTWjXBIRQoseoqpFpmkoqoibOcK3b-FiJ9OBUfsTCZFXyAgyVVl8XV-_LS1CKi6BJLMGmyJiH3LmPCebvhQoHLPLjb7ZDLdNLr7K74tAOR79Uvgcs2K0mW5FrJShc4Y9hxtZUKM75ACeeWi/s1600/1000056783.png" alt="Jac Sparrow" class="avatar" />
+    
+    <h1>Jac Sparrow</h1>
+    <p>Cinephile • Coder • Blogger</p>
+
+    <div class="links-grid">
+      <a href="https://linuxmint.com/download.php" target="_blank" class="link-btn">🐧 Install Linux Mint OS</a>
+      <a href="https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/" target="_blank" class="link-btn">🐧 Install Debian OS</a>
+      <a href="https://youtu.be/GHn7vjxBq1M?list=RDGHn7vjxBq1M" target="_blank" class="link-btn">രാവണപ്രഭു - അറിയാതെ 4K</a>
+      <a href="https://rtxncs2.github.io/m-player/" target="_blank" class="link-btn">നിർണയം - എൻ മെഴുകുതിരി</a>
+      <a href="https://sparrowblogs9.blogspot.com/" target="_blank" class="link-btn">📝 My Blog</a>
+      <a href="https://github.com/rtxncs2?tab=repositories" target="_blank" class="link-btn">💻 My GitHub</a>
+      <a href="https://rtxncs2.github.io/q-player/" target="_blank" class="link-btn">🎵 Music Player</a>
+      <a href="https://rtxncs2.github.io/flames.game/" target="_blank" class="link-btn">🔥 Play Flames Game</a>
+      <a href="https://rtxncs2.github.io/U-Player/" target="_blank" class="link-btn">🎥 Video Player</a>
+    </div>
+
+    <!-- Footer now properly centered with pure CSS -->
+    <div class="footer">
+      ©sparrow.blogs
+    </div>
+  </div>
+</body>
+</html>
+
