@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,541 +5,171 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jac Sparrow | Portfolio</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Mono:wght@400;700&family=Noto+Sans+Malayalam:wght@500&display=swap');
-
-    * {
+    /* Minimal System Font Stack */
+    body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
+      background: #0d1117;
+      color: #c9d1d9;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      line-height: 1.6;
     }
 
-    :root {
-      --bg-dark: #0a0a0f;
-      --bg-card: #16161d;
-      --accent-primary: #00fff5;
-      --accent-secondary: #ff00e5;
-      --text-primary: #ffffff;
-      --text-secondary: #a0a0b0;
-      --grid-color: rgba(0, 255, 245, 0.05);
-    }
-
-    body {
-      background: var(--bg-dark);
-      font-family: 'Outfit', 'Noto Sans Malayalam', sans-serif;
-      color: var(--text-primary);
-      overflow-x: hidden;
-      position: relative;
-    }
-
-    /* Animated background grid */
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: 
-        linear-gradient(var(--grid-color) 1px, transparent 1px),
-        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
-      background-size: 60px 60px;
-      animation: gridMove 20s linear infinite;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    @keyframes gridMove {
-      0% { background-position: 0 0; }
-      100% { background-position: 60px 60px; }
-    }
-
-    /* Floating gradient orbs */
-    .orb {
-      position: fixed;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.3;
-      pointer-events: none;
-      z-index: 0;
-      animation: float 20s ease-in-out infinite;
-    }
-
-    .orb-1 {
-      width: 500px;
-      height: 500px;
-      background: var(--accent-primary);
-      top: -250px;
-      right: -250px;
-      animation-delay: 0s;
-    }
-
-    .orb-2 {
-      width: 400px;
-      height: 400px;
-      background: var(--accent-secondary);
-      bottom: -200px;
-      left: -200px;
-      animation-delay: 7s;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(50px, -50px) scale(1.1); }
-      66% { transform: translate(-30px, 30px) scale(0.9); }
-    }
-
-    /* Main container */
     .container {
-      position: relative;
-      z-index: 1;
-      max-width: 1400px;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 2rem;
+      padding: 2rem 1rem;
     }
 
-    /* Header Section */
+    /* Header */
     header {
       text-align: center;
-      padding: 4rem 0 6rem;
-      position: relative;
-    }
-
-    .avatar-wrapper {
-      position: relative;
-      display: inline-block;
-      margin-bottom: 2rem;
-      animation: fadeInUp 1s ease-out;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid #30363d;
     }
 
     .avatar {
-      width: 160px;
-      height: 160px;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
-      border: 3px solid var(--accent-primary);
-      object-fit: cover;
-      position: relative;
-      z-index: 2;
-      box-shadow: 
-        0 0 0 8px rgba(0, 255, 245, 0.1),
-        0 20px 60px rgba(0, 255, 245, 0.3);
-      animation: pulse 3s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 0 8px rgba(0, 255, 245, 0.1), 0 20px 60px rgba(0, 255, 245, 0.3); }
-      50% { box-shadow: 0 0 0 12px rgba(0, 255, 245, 0.2), 0 20px 80px rgba(0, 255, 245, 0.5); }
+      border: 2px solid #58a6ff;
+      margin-bottom: 1rem;
     }
 
     h1 {
-      font-family: 'Space Mono', monospace;
-      font-size: 4rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      letter-spacing: -2px;
-      animation: fadeInUp 1s ease-out 0.2s backwards;
-    }
-
-    .tagline {
-      font-size: 1.3rem;
-      color: var(--text-secondary);
-      margin-bottom: 2rem;
-      letter-spacing: 2px;
-      animation: fadeInUp 1s ease-out 0.4s backwards;
-    }
-
-    .tagline span {
-      color: var(--accent-primary);
-      font-weight: 600;
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Section Titles */
-    .section-title {
-      font-family: 'Space Mono', monospace;
-      font-size: 2rem;
-      margin: 4rem 0 2rem;
-      text-align: center;
-      position: relative;
-      color: var(--text-primary);
-    }
-
-    .section-title::before {
-      content: '//';
-      color: var(--accent-primary);
-      margin-right: 1rem;
-      font-weight: 700;
-    }
-
-    .section-title::after {
-      content: '';
-      display: block;
-      width: 100px;
-      height: 3px;
-      background: linear-gradient(90deg, var(--accent-primary), transparent);
-      margin: 1rem auto 0;
-    }
-
-    /* Projects Grid */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
-      margin-bottom: 4rem;
-    }
-
-    .project-card {
-      background: var(--bg-card);
-      border-radius: 20px;
-      padding: 2rem;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-      animation: fadeInUp 1s ease-out backwards;
-      text-decoration: none;
-      display: block;
-      color: inherit;
-    }
-
-    .project-card:nth-child(1) { animation-delay: 0.1s; }
-    .project-card:nth-child(2) { animation-delay: 0.2s; }
-    .project-card:nth-child(3) { animation-delay: 0.3s; }
-    .project-card:nth-child(4) { animation-delay: 0.4s; }
-    .project-card:nth-child(5) { animation-delay: 0.5s; }
-
-    .project-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, rgba(0, 255, 245, 0.05), rgba(255, 0, 229, 0.05));
-      opacity: 0;
-      transition: opacity 0.4s ease;
-    }
-
-    .project-card:hover {
-      transform: translateY(-10px) scale(1.02);
-      border-color: var(--accent-primary);
-      box-shadow: 
-        0 0 0 1px var(--accent-primary),
-        0 30px 60px rgba(0, 255, 245, 0.2);
-    }
-
-    .project-card:hover::before {
-      opacity: 1;
-    }
-
-    .project-icon {
+      color: #f0f6fc;
+      margin: 0;
       font-size: 2.5rem;
-      margin-bottom: 1rem;
-      display: inline-block;
     }
 
-    .project-title {
-      font-size: 1.4rem;
-      font-weight: 600;
-      margin-bottom: 0.8rem;
-      color: var(--text-primary);
+    .tagline { color: #8b949e; font-size: 1.1rem; }
+    .tagline span { color: #58a6ff; }
+
+    /* Layout */
+    .section-title {
+      color: #f0f6fc;
+      border-left: 4px solid #58a6ff;
+      padding-left: 10px;
+      margin: 2.5rem 0 1.5rem;
     }
 
-    .project-description {
-      color: var(--text-secondary);
-      margin-bottom: 1.5rem;
-      line-height: 1.6;
-      font-size: 0.95rem;
-    }
-
-    .project-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--accent-primary);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: all 0.3s ease;
-      font-family: 'Space Mono', monospace;
-      pointer-events: none;
-    }
-
-    .project-card:hover .project-link {
-      gap: 1rem;
-      color: var(--text-primary);
-    }
-
-    .project-link::after {
-      content: '→';
-      transition: transform 0.3s ease;
-    }
-
-    .project-card:hover .project-link::after {
-      transform: translateX(5px);
-    }
-
-    /* Resources Section */
-    .resources-grid {
+    .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 4rem;
+      gap: 1.2rem;
     }
 
-    .resource-card {
-      background: linear-gradient(135deg, rgba(0, 255, 245, 0.05), rgba(255, 0, 229, 0.05));
-      border: 1px solid rgba(0, 255, 245, 0.2);
-      border-radius: 15px;
-      padding: 1.8rem;
-      text-align: center;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      animation: fadeInUp 1s ease-out backwards;
-    }
-
-    .resource-card:nth-child(1) { animation-delay: 0.1s; }
-    .resource-card:nth-child(2) { animation-delay: 0.2s; }
-    .resource-card:nth-child(3) { animation-delay: 0.3s; }
-
-    .resource-card::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, transparent, rgba(0, 255, 245, 0.1), transparent);
-      transform: rotate(45deg);
-      transition: all 0.6s ease;
-    }
-
-    .resource-card:hover::before {
-      left: 100%;
-    }
-
-    .resource-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--accent-primary);
-      box-shadow: 0 15px 40px rgba(0, 255, 245, 0.3);
-    }
-
-    .resource-card a {
-      color: var(--text-primary);
+    /* Cards */
+    .card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 1.5rem;
       text-decoration: none;
-      font-weight: 500;
-      font-size: 1.05rem;
-      display: block;
-      position: relative;
-      z-index: 1;
+      color: inherit;
+      transition: border-color 0.2s;
     }
 
-    /* Footer */
+    .card:hover {
+      border-color: #58a6ff;
+      background: #1c2128;
+    }
+
+    .card h3 {
+      margin: 0 0 0.5rem;
+      color: #58a6ff;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #8b949e;
+    }
+
+    /* Resource Links */
+    .resources {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .res-link {
+      background: #21262d;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      text-decoration: none;
+      color: #c9d1d9;
+      border: 1px solid #30363d;
+    }
+
+    .res-link:hover { background: #30363d; }
+
     footer {
       text-align: center;
-      padding: 3rem 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
       margin-top: 4rem;
-      font-family: 'Space Mono', monospace;
+      padding-top: 2rem;
+      border-top: 1px solid #30363d;
+      color: #8b949e;
+      font-size: 0.8rem;
     }
 
-    .footer-content {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      align-items: center;
-    }
-
-    .footer-text {
-      color: var(--text-secondary);
-      font-size: 0.9rem;
-    }
-
-    .footer-link {
-      color: var(--accent-primary);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .footer-link:hover {
-      color: var(--text-primary);
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2.5rem;
-      }
-
-      .tagline {
-        font-size: 1rem;
-      }
-
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .resources-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .section-title {
-        font-size: 1.5rem;
-      }
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
     }
   </style>
 </head>
 <body>
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
 
   <div class="container">
     <header>
-      <div class="avatar-wrapper">
-        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEirvszDttU2BaARwvLRaY-TBr7awLPypgvIVkJ5Dy2PrTowVaTWjXBIRQoseoqpFpmkoqoibOcK3b-FiJ9OBUfsTCZFXyAgyVVl8XV-_LS1CKi6BJLMGmyJiH3LmPCebvhQoHLPLjb7ZDLdNLr7K74tAOR79Uvgcs2K0mW5FrJShc4Y9hxtZUKM75ACeeWi/s1600/1000056783.png" alt="Jac Sparrow" class="avatar" />
-      </div>
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEirvszDttU2BaARwvLRaY-TBr7awLPypgvIVkJ5Dy2PrTowVaTWjXBIRQoseoqpFpmkoqoibOcK3b-FiJ9OBUfsTCZFXyAgyVVl8XV-_LS1CKi6BJLMGmyJiH3LmPCebvhQoHLPLjb7ZDLdNLr7K74tAOR79Uvgcs2K0mW5FrJShc4Y9hxtZUKM75ACeeWi/s1600/1000056783.png" alt="Jac Sparrow" class="avatar" />
       <h1>Jac Sparrow</h1>
       <p class="tagline"><span>Cinephile</span> • <span>Coder</span> • <span>Blogger</span></p>
     </header>
 
     <h2 class="section-title">Featured Projects</h2>
-    <div class="projects-grid">
-      <a href="https://rtxncs2.github.io/Big-Player/" target="_blank" class="project-card">
-        <div class="project-icon">🎵</div>
-        <h3 class="project-title">Music Player</h3>
-        <p class="project-description">A sleek, modern music player with playlist support and beautiful visualizations.</p>
-        <span class="project-link">
-          Launch Player
-        </span>
+    <div class="grid">
+      <a href="https://rtxncs2.github.io/Big-Player/" target="_blank" class="card">
+        <h3>🎵 Music Player</h3>
+        <p>Sleek player with playlist support and visualizations.</p>
       </a>
 
-      <a href="https://rtxncs2.github.io/U-Player/" target="_blank" class="project-card">
-        <div class="project-icon">📺</div>
-        <h3 class="project-title">Video Player</h3>
-        <p class="project-description">Custom video player with advanced controls and smooth playback experience.</p>
-        <span class="project-link">
-          Open Player
-        </span>
+      <a href="https://rtxncs2.github.io/U-Player/" target="_blank" class="card">
+        <h3>📺 Video Player</h3>
+        <p>Custom player with advanced controls and smooth playback.</p>
       </a>
 
-      <a href="https://rtxncs2.github.io/flames.game/" target="_blank" class="project-card">
-        <div class="project-icon">🔥</div>
-        <h3 class="project-title">Flames Game</h3>
-        <p class="project-description">Interactive relationship compatibility game built with pure JavaScript.</p>
-        <span class="project-link">
-          Play Game
-        </span>
+      <a href="https://rtxncs2.github.io/flames.game/" target="_blank" class="card">
+        <h3>🔥 Flames Game</h3>
+        <p>Interactive relationship game built with pure JS.</p>
       </a>
 
-      <a href="https://rtxncs2.github.io/simple-table-booking" target="_blank" class="project-card">
-        <div class="project-icon">🍽️</div>
-        <h3 class="project-title">Table Booking</h3>
-        <p class="project-description">Simple and elegant restaurant table booking system with real-time availability.</p>
-        <span class="project-link">
-          View Demo
-        </span>
+      <a href="https://rtxncs2.github.io/simple-table-booking" target="_blank" class="card">
+        <h3>🍽️ Table Booking</h3>
+        <p>Elegant restaurant booking system demo.</p>
       </a>
 
-      <a href="https://sparrowblogs9.blogspot.com/" target="_blank" class="project-card">
-        <div class="project-icon">✍️</div>
-        <h3 class="project-title">Blog</h3>
-        <p class="project-description">Personal blog covering tech, movies, and coding adventures.</p>
-        <span class="project-link">
-          Read Blog
-        </span>
+      <a href="https://sparrowblogs9.blogspot.com/" target="_blank" class="card">
+        <h3>✍️ Blog</h3>
+        <p>Personal writings on tech and cinema.</p>
       </a>
     </div>
 
     <h2 class="section-title">Resources & Tools</h2>
-    <div class="resources-grid">
-      <div class="resource-card">
-        <a href="https://drive.google.com/drive/folders/1sEpAfbvJ9IBBXDKV43B3wggOnUxGK9qY?usp=sharing/" target="_blank">
-          📁 Public Files
-        </a>
-      </div>
-
-
-   <div class="resource-card">
-        <a href="https://rtxncs2.github.io/ebooks/" target="_blank">
-          Ebooks Collection
-        </a>
-
-      
-
-      <div class="resource-card">
-        <a href="https://www.google.com/intl/ml/inputtools/try/" target="_blank">
-          ⌨️ Malayalam Keyboard
-        </a>
-      </div>
-
-      <div class="resource-card">
-        <a href="https://linuxmint.com/download.php" target="_blank">
-          🐧 Linux Mint
-        </a>
-      </div>
-
-      <div class="resource-card">
-        <a href="https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/" target="_blank">
-          💿 Debian OS
-        </a>
-      </div>
-
-      <div class="resource-card">
-        <a href="https://antixlinux.com/download/" target="_blank">
-          ⚡ Antix Linux
-        </a>
-      </div>
+    <div class="resources">
+      <a href="https://drive.google.com/drive/folders/1sEpAfbvJ9IBBXDKV43B3wggOnUxGK9qY?usp=sharing/" class="res-link">📁 Public Files</a>
+      <a href="https://rtxncs2.github.io/ebooks/" class="res-link">📚 Ebooks</a>
+      <a href="https://www.google.com/intl/ml/inputtools/try/" class="res-link">⌨️ Malayalam Keyboard</a>
+      <a href="https://linuxmint.com/download.php" class="res-link">🐧 Linux Mint</a>
+      <a href="https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/" class="res-link">💿 Debian OS</a>
+      <a href="https://antixlinux.com/download/" class="res-link">⚡ Antix Linux</a>
     </div>
 
     <footer>
-      <div class="footer-content">
-        <p class="footer-text">© 2024 sparrow.blogs</p>
-        <p class="footer-text">Built with passion for code and cinema</p>
-      </div>
+      <p>© 2024 sparrow.blogs • Built for speed</p>
     </footer>
   </div>
 
-  <script>
-    // Smooth scroll reveal animation
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, observerOptions);
-
-    // Add parallax effect to orbs on mouse move
-    document.addEventListener('mousemove', (e) => {
-      const orbs = document.querySelectorAll('.orb');
-      const x = e.clientX / window.innerWidth;
-      const y = e.clientY / window.innerHeight;
-      
-      orbs.forEach((orb, index) => {
-        const speed = (index + 1) * 20;
-        orb.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
-      });
-    });
-  </script>
 </body>
 </html>
